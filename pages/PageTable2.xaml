@@ -20,7 +20,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles.xaml"/>
+                <ResourceDictionary Source="../Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -36,7 +36,7 @@
                     BorderThickness="0"
                     Padding="0"
                     HorizontalAlignment="Left">
-                <Image Source="Images/Back.png" Width="35" Height="35"/>
+                <Image Source="/Images/Back.png" Width="35" Height="35"/>
             </Button>
 
             <!-- Дата -->

@@ -7,25 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApplProject
+namespace WpfApplProject.pages
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class HealthDays
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public HealthDays()
         {
-            this.HealthDays = new HashSet<HealthDays>();
+            this.Symptoms = new HashSet<Symptoms>();
         }
     
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string PasswordHash { get; set; }
-        public string Email { get; set; }
+        public int UserId { get; set; }
+        public System.DateTime Date { get; set; }
+        public int OverallFeeling { get; set; }
+        public string MoodLevel { get; set; }
+        public string EnergyLevel { get; set; }
+        public string SleepQualityLevel { get; set; }
+        public Nullable<decimal> SleepHours { get; set; }
+        public string PainLevel { get; set; }
+        public string Notes { get; set; }
     
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HealthDays> HealthDays { get; set; }
+        public virtual ICollection<Symptoms> Symptoms { get; set; }
     }
 }

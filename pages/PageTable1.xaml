@@ -22,7 +22,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles.xaml"/>
+                <ResourceDictionary Source="../Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -55,28 +55,28 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button ToolTip="Назад" Click="BackButton_Click" >
-                    <Image Source="Images/Back.png" Width="24" Height="24"/>
+                    <Image Source="/Images/Back.png" Width="24" Height="24"/>
                 </Button>
                 <Button ToolTip="Скасувати" Command="command:DataCommands.Undo">
-                    <Image Source="Images/Undo.png" Width="24" Height="24"/>
+                    <Image Source="/Images/Undo.png" Width="24" Height="24"/>
                 </Button>
                 <Button ToolTip="Створити" Command="command:DataCommands.New">
-                    <Image Source="Images/New.png" Width="30" Height="30"/>
+                    <Image Source="/Images/New.png" Width="30" Height="30"/>
                 </Button>
                 <Button ToolTip="Редагувати" Command="command:DataCommands.Replace">
-                    <Image Source="Images/Edit.png" Width="30" Height="30"/>
+                    <Image Source="/Images/Edit.png" Width="30" Height="30"/>
                 </Button>
                 <Button ToolTip="Зберегти" Command="command:DataCommands.Save">
-                    <Image Source="Images/Save.png" Width="30" Height="30"/>
+                    <Image Source="/Images/Save.png" Width="30" Height="30"/>
                 </Button>
                 <Button ToolTip="Знайти" Command="command:DataCommands.Find">
-                    <Image Source="Images/Find.png" Width="30" Height="30"/>
+                    <Image Source="/Images/Find.png" Width="30" Height="30"/>
                 </Button>
                 <Button ToolTip="Видалити" Command="command:DataCommands.Delete">
-                    <Image Source="Images/Delete.png" Width="30" Height="30"/>
+                    <Image Source="/Images/Delete.png" Width="30" Height="30"/>
                 </Button>
                 <Button ToolTip="Оновити" Command="command:DataCommands.Update">
-                    <Image Source="Images/Update.png" Width="30" Height="30"/>
+                    <Image Source="/Images/Update.png" Width="30" Height="30"/>
                 </Button>
             </ToolBar>
         </ToolBarTray>

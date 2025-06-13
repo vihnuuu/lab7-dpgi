@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApplProject
+namespace WpfApplProject.pages
 {
     using System;
     using System.Data.Entity;

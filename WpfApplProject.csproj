@@ -69,42 +69,42 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\DataCommands.cs" />
-    <Compile Include="HealthDays.cs">
+    <Compile Include="pages\HealthDays.cs">
       <DependentUpon>WpfApplProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="LoginPage.xaml.cs">
+    <Compile Include="pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PasswordHelper.cs" />
-    <Compile Include="RegisterPage.xaml.cs">
+    <Compile Include="pages\PasswordHelper.cs" />
+    <Compile Include="pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Symptoms.cs">
+    <Compile Include="pages\Symptoms.cs">
       <DependentUpon>WpfApplProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="Users.cs">
+    <Compile Include="pages\Users.cs">
       <DependentUpon>WpfApplProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="WpfApplProject.Context.cs">
+    <Compile Include="pages\WpfApplProject.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WpfApplProject.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WpfApplProject.cs">
+    <Compile Include="pages\WpfApplProject.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WpfApplProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="WpfApplProject.Designer.cs">
+    <Compile Include="pages\WpfApplProject.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WpfApplProject.edmx</DependentUpon>
     </Compile>
-    <Page Include="LoginPage.xaml">
+    <Page Include="pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="pages\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -112,23 +112,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="pages\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PageMain.xaml">
+    <Page Include="pages\PageMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageTable1.xaml">
+    <Page Include="pages\PageTable1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageTable2.xaml">
+    <Page Include="pages\PageTable2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegisterPage.xaml">
+    <Page Include="pages\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,13 +138,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PageMain.xaml.cs">
+    <Compile Include="pages\PageMain.xaml.cs">
       <DependentUpon>PageMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageTable1.xaml.cs">
+    <Compile Include="pages\PageTable1.xaml.cs">
       <DependentUpon>PageTable1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageTable2.xaml.cs">
+    <Compile Include="pages\PageTable2.xaml.cs">
       <DependentUpon>PageTable2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -164,16 +164,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="WpfApplProject.edmx">
+    <EntityDeploy Include="pages\WpfApplProject.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>WpfApplProject.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WpfApplProject.edmx.diagram">
+    <None Include="pages\WpfApplProject.edmx.diagram">
       <DependentUpon>WpfApplProject.edmx</DependentUpon>
     </None>
   </ItemGroup>
@@ -187,12 +186,12 @@
     <Resource Include="Images\logo.png" />
     <Resource Include="Images\Update.png" />
     <Resource Include="Images\Back.png" />
-    <Content Include="WpfApplProject.Context.tt">
+    <Content Include="pages\WpfApplProject.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WpfApplProject.Context.cs</LastGenOutput>
       <DependentUpon>WpfApplProject.edmx</DependentUpon>
     </Content>
-    <Content Include="WpfApplProject.tt">
+    <Content Include="pages\WpfApplProject.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WpfApplProject.edmx</DependentUpon>
       <LastGenOutput>WpfApplProject.cs</LastGenOutput>
