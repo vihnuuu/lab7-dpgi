@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище WellnessTrackerNewModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HealthDays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="OverallFeeling" Type="int" Nullable="false" />
+          <Property Name="MoodLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnergyLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="SleepQualityLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="SleepHours" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="PainLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Symptoms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Severity" Type="nvarchar" MaxLength="50" />
+          <Property Name="HealthDayId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_HealthDays_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="HealthDays" Type="Self.HealthDays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HealthDays">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Symptoms_HealthDays">
+          <End Role="HealthDays" Type="Self.HealthDays" Multiplicity="1" />
+          <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HealthDays">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Symptoms">
+              <PropertyRef Name="HealthDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище WellnessTrackerNewModelContainer">
+          <EntitySet Name="HealthDays" EntityType="Self.HealthDays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HealthDays_Users" Association="Self.FK_HealthDays_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="HealthDays" EntitySet="HealthDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Symptoms_HealthDays" Association="Self.FK_Symptoms_HealthDays">
+            <End Role="HealthDays" EntitySet="HealthDays" />
+            <End Role="Symptoms" EntitySet="Symptoms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WellnessTrackerNewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HealthDays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OverallFeeling" Type="Int32" Nullable="false" />
+          <Property Name="MoodLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnergyLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SleepQualityLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SleepHours" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="PainLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_HealthDays_Users" FromRole="HealthDays" ToRole="Users" />
+          <NavigationProperty Name="Symptoms" Relationship="Self.FK_Symptoms_HealthDays" FromRole="HealthDays" ToRole="Symptoms" />
+        </EntityType>
+        <EntityType Name="Symptoms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Severity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HealthDayId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HealthDays" Relationship="Self.FK_Symptoms_HealthDays" FromRole="Symptoms" ToRole="HealthDays" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HealthDays" Relationship="Self.FK_HealthDays_Users" FromRole="Users" ToRole="HealthDays" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_HealthDays_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="HealthDays" Type="Self.HealthDays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HealthDays">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Symptoms_HealthDays">
+          <End Role="HealthDays" Type="Self.HealthDays" Multiplicity="1" />
+          <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HealthDays">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Symptoms">
+              <PropertyRef Name="HealthDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WellnessTrackerNewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HealthDays" EntityType="Self.HealthDays" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptoms" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_HealthDays_Users" Association="Self.FK_HealthDays_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="HealthDays" EntitySet="HealthDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Symptoms_HealthDays" Association="Self.FK_Symptoms_HealthDays">
+            <End Role="HealthDays" EntitySet="HealthDays" />
+            <End Role="Symptoms" EntitySet="Symptoms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище WellnessTrackerNewModelContainer" CdmEntityContainer="WellnessTrackerNewEntities">
+          <EntitySetMapping Name="HealthDays">
+            <EntityTypeMapping TypeName="WellnessTrackerNewModel.HealthDays">
+              <MappingFragment StoreEntitySet="HealthDays">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="OverallFeeling" ColumnName="OverallFeeling" />
+                <ScalarProperty Name="MoodLevel" ColumnName="MoodLevel" />
+                <ScalarProperty Name="EnergyLevel" ColumnName="EnergyLevel" />
+                <ScalarProperty Name="SleepQualityLevel" ColumnName="SleepQualityLevel" />
+                <ScalarProperty Name="SleepHours" ColumnName="SleepHours" />
+                <ScalarProperty Name="PainLevel" ColumnName="PainLevel" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Symptoms">
+            <EntityTypeMapping TypeName="WellnessTrackerNewModel.Symptoms">
+              <MappingFragment StoreEntitySet="Symptoms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="HealthDayId" ColumnName="HealthDayId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="WellnessTrackerNewModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

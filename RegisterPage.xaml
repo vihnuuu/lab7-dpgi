@@ -1,0 +1,130 @@
+﻿<Page x:Class="WpfApplProject.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="RegisterPage">
+
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#4CAF50" Offset="0"/>
+            <GradientStop Color="#A5D6A7" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid>
+        <Border Width="450"
+                Padding="30"
+                Background="White"
+                CornerRadius="20"
+                BorderBrush="#C8E6C9"
+                BorderThickness="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <StackPanel>
+
+                <!-- Заголовок -->
+                <TextBlock Text="Реєстрація"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="#2E7D32"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30"/>
+
+                <!-- Ім'я користувача -->
+                <TextBlock Text="Ім’я користувача"
+                           FontSize="14"
+                           Foreground="Gray"
+                           Margin="5,0,0,3"/>
+                <TextBox x:Name="usernameBox"
+                         Height="40"
+                         FontSize="14"
+                         Background="#EFFBEF"
+                         BorderBrush="#C5E1A5"
+                         BorderThickness="1"
+                         Padding="8"
+                         Margin="0,0,0,15"/>
+
+                <!-- Email -->
+                <TextBlock Text="Email"
+                           FontSize="14"
+                           Foreground="Gray"
+                           Margin="5,0,0,3"/>
+                <TextBox x:Name="emailBox"
+                         Height="40"
+                         FontSize="14"
+                         Background="#EFFBEF"
+                         BorderBrush="#C5E1A5"
+                         BorderThickness="1"
+                         Padding="8"
+                         Margin="0,0,0,15"/>
+
+                <!-- Пароль -->
+                <TextBlock Text="Пароль"
+                           FontSize="14"
+                           Foreground="Gray"
+                           Margin="5,0,0,3"/>
+                <PasswordBox x:Name="passwordBox"
+                             Height="40"
+                             FontSize="14"
+                             Background="#EFFBEF"
+                             BorderBrush="#C5E1A5"
+                             BorderThickness="1"
+                             Padding="8"
+                             Margin="0,0,0,15"/>
+
+                <!-- Підтвердження пароля -->
+                <TextBlock Text="Підтвердження пароля"
+                           FontSize="14"
+                           Foreground="Gray"
+                           Margin="5,0,0,3"/>
+                <PasswordBox x:Name="confirmPasswordBox"
+                             Height="40"
+                             FontSize="14"
+                             Background="#EFFBEF"
+                             BorderBrush="#C5E1A5"
+                             BorderThickness="1"
+                             Padding="8"
+                             Margin="0,0,0,25"/>
+
+                <!-- Кнопки -->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="10"
+                                                Padding="5"
+                                                BorderThickness="0">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <Button Content="Зареєструватися"
+                            Width="200"
+                            Height="40"
+                            Margin="5"
+                            Background="#66BB6A"
+                            Foreground="White"
+                            FontWeight="SemiBold"
+                            Click="RegisterButton_Click"/>
+
+                    <Button Content="Назад до входу"
+                            Width="200"
+                            Height="40"
+                            Margin="5"
+                            Background="#A5D6A7"
+                            Foreground="#1B5E20"
+                            FontWeight="SemiBold"
+                            Click="BackButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,41 @@
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.aps
+*.bsc
+*.ilk
+*.obj
+*.pdb
+*.sbr
+*.pch
+*.exp
+*.lib
+*.ncb
+*.opensdf
+*.sdf
+*.cache
+*.VC.db
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Tt]humbs.db
+*.exe
+*.dll
+*.pdb
+*.apk
+*.aab
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Packages
+packages/
+*.nupkg
+*.snk
